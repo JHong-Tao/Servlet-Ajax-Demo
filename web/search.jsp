@@ -23,7 +23,7 @@
     <div id="mydiv">
       <!--输入框-->
       <input type="text" size="50" id="keyword"/>
-      <input type="button" value="百度一下" width="50px">
+      <input type="button" value="百度一下" width="50px"/>
     </div>
   </body>
 </html>
