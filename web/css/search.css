@@ -1,0 +1,7 @@
+#mydiv{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -50px;
+}

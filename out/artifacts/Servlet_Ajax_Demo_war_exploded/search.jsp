@@ -9,21 +9,14 @@
 <html>
   <head>
     <title>search</title>
-    <style type="text/css">
-      #mydiv{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -200px;
-        margin-top: -50px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/search.css">
+    <script type="text/javascript" src="js/search.js"></script>
   </head>
   <body>
     <div id="mydiv">
       <!--输入框-->
-      <input type="text" size="50" id="keyword"/>
-      <input type="button" value="百度一下" width="50px">
+      <input type="text" size="50" id="keyword" onkeyup="getMoreContents()"/>
+      <input type="button" value="百度一下" width="50px"/>
     </div>
   </body>
 </html>
