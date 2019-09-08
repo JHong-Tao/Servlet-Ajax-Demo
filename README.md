@@ -6,7 +6,7 @@
 - 改进：代码比较粗
 - 效果展示：
 
-![avatar][result]
+![image](web/img/servlet+ajax+demo.gif)
 
 我的学习笔记：
 后面在补充
