@@ -13,17 +13,25 @@
     <script type="text/javascript" src="./js/search.js"></script>
   </head>
   <body>
-    <div id="mydiv">
-      <%--输入框--%>
-      <input type="text" size="50" id="keyword" onkeyup="getMoreContents()" onblur="kewordBlur()" onfocus="getMoreContents()"/>
-      <input type="button" value="百度一下" width="50px"/>
-      <div id="popDiv">
-        <table id="content_table" bgcolor="#FFFAFA" border="0" cellspacing="0" cellpadding="0">
-          <tbody id="content_table_body">
-            <%--动态查询出来的数据显示在这个地方--%>
-          </tbody>
-        </table>
+      <div id="div_body" onclick="clearContent()" >
+          <div id="log" class="center">
+              <img src="img/logo.gif" id="log_img">
+          </div>
+          <div id="root" class="container">
+            <div id="mydiv">
+              <%--输入框--%>
+              <input type="text" id="keyword" onkeyup="getMoreContents()" onblur="kewordBlur()" onfocus="keywordFocus()"/>
+              <input type="button" id="b_btn" value="百度一下" width="50px"/>
+            </div>
+            <div id="popDiv">
+                <table id="content_table">
+                    <tbody id="content_table_body">
+                    <%--动态查询出来的数据显示在这个地方--%>
+                    </tbody>
+                </table>
+                <div id="auxiliary"></div>
+            </div>
+          </div>
       </div>
-    </div>
   </body>
 </html>

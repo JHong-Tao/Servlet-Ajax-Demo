@@ -1,19 +1,62 @@
-.mouseOver{
-    background: #708090;
-    /*color:#FFFAFA ;*/
-    color: red;
+#keyword{
+    width: 500px;
+    height: 36px;
+    font-size: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    border: 1px solid #3385ff;
+
+}
+#b_btn{
+    border: 0px;
+    color: #fff;
+    height: 36px;
+    background-color: #3385ff;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.mouseOut{
-    background: #FFFAFA;
-    color:#000000 ;
+#content_table{
+    /*bgcolor="#FFFAFA" border="0" cellspacing="0" cellpadding="0"*/
+    background-color: #FFFAFA;
+    border: 0px;
+}
+
+.container{
+   text-align: center;
+    align-content: center;
 }
 
 #mydiv{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -200px;
-    margin-top: -50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.center{
+   text-align: center;
+}
+
+#popDiv{
+    /*align-content: center;*/
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_body{
+    width: 100%;
+    height: 100%;
+}
+
+#auxiliary{
+    width: 83px;
+    border: 0px;
+}
+
+#log_img{
+    width: 300px;
+    height: 140px;
+    margin-top: 100px;
+}

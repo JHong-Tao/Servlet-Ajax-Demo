@@ -59,29 +59,39 @@ function callback() {
 function setContent(contens) {
     // 设置数据之前先清空搜索框数据
     clearContent();
+
+    // 设置关联信息显示的位置
+    // setLocation();
+    
     // 首先获取关联数据的长度，以此来确定生成多少行，也就是多少个<tr></tr>
     var size = contens.length;
+    var input = document.getElementById("keyword");
     // 设置动态生成的内容
     for(var i = 0; i < size; i++){
         var nextNode = contens[i];  // 代表的是json个数数据的第i个元素
         var tr = document.createElement("tr");
         var td = document.createElement("td");
+        td.style.fontSize = "28px";
         td.setAttribute("border","0");
-        td.setAttribute("bgcolor","#FFFAFA");
+        td.style.width = "500px";
+        td.style.border = "0px";
+        td.setAttribute("bgcolor","#fffafa");
         td.onmouseover = function () {
-            // this.className = "mouseOver";
-            var outcss = document.styleSheets;
-            // console.log(outcss[0].cssRules);
-            this.className = outcss[0].cssRules[0];
+            this.style.width = document.getElementById("keyword").offsetWidth + "px";
+            this.style.color = "#fffafa";
+            this.style.background = "#708090";
+            //input.value = this.innerText;
         };
         td.onmouseout = function () {
-           // this.className = document.styleSheets[0].rules[0];
-            var outcss = document.styleSheets;
-            console.log(outcss[0].cssRules[1]);
-            this.className = outcss[0].cssRules[1];
+            this.style.color = "#000000";
+            this.style.background = "#fffafa"
         };
         td.onclick = function () {
           // 这个方法实现的是，当选择一个关联的数据时，被鼠标点击的数据自动设置为输入框的数据
+            input.value = this.innerText;
+            console.log(input.value);
+            clearContent();
+
         };
         var text = document.createTextNode(nextNode);
         td.appendChild(text);
@@ -97,10 +107,51 @@ function clearContent() {
     for(var i = size-1; i >= 0; i--){
         contentTavleBody.removeChild(contentTavleBody.childNodes[i]);
     }
+    document.getElementById("popDiv").style.border = null;
+}
+
+// 搜索框获得焦点
+function keywordFocus() {
+    var table = document.getElementById("content_table_body");
+    table.style.display = "block";
+    getMoreContents();
 }
 
 // 搜索框失去焦点,清空数据
 function kewordBlur() {
-    clearContent();
+    var input = document.getElementById("keyword");
+    var table = document.getElementById("content_table_body");
+    if(!input.focus()){
+        var tds = document.getElementsByTagName("td");
+        var flag = false;
+        for (var i = 0; i < tds.length; i++){
+            if (tds[i].onmouseover()){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            //clearContent();
+        }
+    }
 }
+
+
+
 // 获得焦点，触发getMoreContents（）
+
+// 设置显示关联信息内容的位置，关联信息的位置要和输入框一直
+function setLocation() {
+    // 关联信息的位置要和输入框一直
+    var content = document.getElementById("keyword");
+    var left = content["offsetLeft"];   // 距离左边框的宽度
+    var top = content["offsetTop"] + content.offsetHeight;  // 设置显示内容在搜索框的下面
+    // 获得显示数据的div
+    var popDiv = document.getElementById("popDiv");
+    popDiv.style.border = "black 0px solid";
+    popDiv.style.left = left+"px";
+    popDiv.style.top = top + "px";
+}
+
+// content_table_body失去焦点
+
